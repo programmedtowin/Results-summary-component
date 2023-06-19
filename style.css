@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@800&family=Outfit:wght@400;700&display=swap");
+
+/* General */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  border-radius: 30px;
+  box-shadow: 10px 24px 16px hsl(221, 100%, 96%);
+  background-color: hsl(0, 0%, 100%);
+  width: 600px;
+  height: auto;
+  margin: 15vh auto;
+  text-align: center;
+}
+
+/* Results code (left side) */
+
+.results-container {
+  border-radius: 30px;
+  background: linear-gradient(
+    to bottom,
+    hsl(252, 100%, 67%, 2),
+    hsl(241, 81%, 54%)
+  );
+  position: relative;
+}
+
+.results__heading {
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  margin-top: 35px;
+  opacity: 0.8;
+}
+
+.results__score-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.results__score-container::before {
+  content: "";
+  display: block;
+  width: 50%;
+  /* 50% of parent's width (To create Square to then make a circle)   */
+  padding-bottom: 50%;
+  border-radius: 60%;
+  background: linear-gradient(
+    to bottom,
+    hsla(256, 72%, 46%, 1),
+    hsla(241, 72%, 46%, 0)
+  );
+  z-index: 1;
+
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  /* 1. right +, left - && 2. down +, up -  */
+  transform: translate(-50%, -50%);
+}
+
+.results__score--big {
+  font-size: 60px;
+  margin-top: 65px;
+  align-self: center;
+
+  color: hsl(0, 0%, 100%);
+}
+
+.results__score--small {
+  margin-top: -5px;
+  font-size: 12px;
+  color: hsl(241, 100%, 89%);
+  opacity: 0.5;
+}
+
+.results__score--big,
+.results__score--small {
+  z-index: 2;
+}
+
+.results__msg--big {
+  color: hsl(0, 0%, 100%);
+  margin-top: 65px;
+  font-size: 20px;
+}
+.results__msg--small {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 10px 55px;
+  opacity: 0.8;
+}
+
+.results__heading,
+.results__msg--small {
+  color: hsl(241, 100%, 89%);
+}
+
+/* Summary Code */
+
+.summary__results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px auto;
+}
+
+.summary__heading {
+  color: hsl(224, 30%, 27%);
+  margin: 35px 30px 25px;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+
+.summary-list {
+  list-style-type: none;
+  margin: 0px 30px;
+}
+
+li {
+  color: hsl(224, 30%, 27%, 0.5);
+}
+
+.number--darker {
+  color: hsl(224, 30%, 27%);
+}
+
+.icons {
+  width: 20px;
+  height: 20px;
+  /* Question: Better solutions to center icons to vertically align with text? */
+  margin: 0px 5px -5.5px 0px;
+}
+
+/* Summary Background colors */
+.summary--red {
+  background-color: hsl(0, 100%, 67%, 0.05);
+}
+
+.summary--yellow {
+  background-color: hsl(39, 100%, 56%, 0.05);
+}
+
+.summary--green {
+  background-color: hsl(166, 100%, 37%, 0.05);
+}
+
+.summary--blue {
+  background-color: hsl(234, 85%, 45%, 0.05);
+}
+
+.summary--red,
+.summary--yellow,
+.summary--green,
+.summary--blue {
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* Summary Catagory Text color*/
+.summary__category--red {
+  color: hsl(0, 100%, 67%);
+}
+
+.summary__category--yellow {
+  color: hsl(39, 100%, 56%);
+}
+.summary__category--green {
+  color: hsl(166, 100%, 37%);
+}
+
+.summary__category--blue {
+  color: hsl(234, 85%, 45%);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  font-family: inherit;
+  font-size: 14px;
+
+  margin: 25px 30px 25px 30px;
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(224, 30%, 27%);
+  padding: 12px;
+  border-radius: 40px;
+  width: 85%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background-color: hsla(256, 72%, 46%, 1);
+}
+
+@media (max-width: 700px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 30px;
+    background-color: hsl(0, 0%, 100%);
+    width: 350px;
+    height: auto;
+    margin: 15vh auto;
+    text-align: center;
+  }
+
+  .results__msg--small br {
+    display: none;
+  }
+
+  .results__msg--small {
+    margin: 10px 62px;
+  }
+}
